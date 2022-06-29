@@ -1,0 +1,32 @@
+
+.btn-switch{
+    box-shadow: none !important;
+}
+.btn-switch::after{
+    content: "";
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    background-color: #e4e6eb;
+    top: 0;
+    left: 0;
+    right: unset;
+    border-radius: 100%;
+    transition: all .3s ease;
+    box-shadow: 0 0 1px 2px rgba(170, 170, 170, 0.16);
+}
+
+.btn-switch.active-dark{
+    background-color: var(--black-light-color) !important;
+    color: var(--text-color) !important;
+    border: none !important;
+}
+
+.btn-switch.active-dark::after{
+    right: 0;
+    left: unset;
+    transition: all .3s linear;
+    background-color: var(--dt-darker);
+    box-shadow: 0 0 1px 2px rgba(0, 0, 0, 0.16);
+}

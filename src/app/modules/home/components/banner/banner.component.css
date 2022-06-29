@@ -1,0 +1,16 @@
+.banner{
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+img.banner-img{
+    width: 100%;
+    height: 224px;
+    object-fit: cover;
+}
+
+@media screen and (min-width: 1200px) {
+    img.banner-img{
+        height: 300px;
+    }
+}
