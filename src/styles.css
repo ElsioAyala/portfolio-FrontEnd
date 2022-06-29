@@ -1,1 +1,13 @@
-/* You can add global styles to this file, and also import other style files */
+:root{
+    --dt-dark: #212e36;
+    --dt-darker: #192229;
+    --dt-darkest: #121a21;
+    --dt-dark-accent: #1b2831;
+    --dt-border: #273b49;
+    --dt-light-accent: var(--grey-700);
+    --dt-background: var(--dt-dark);
+    --black-light-color: #273b49;
+    --title-color: #ecf0f3;
+    --text-color: #b7c1c8;
+    --alto-caja: 10px;
+}
