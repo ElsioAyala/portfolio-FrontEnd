@@ -9,6 +9,8 @@ import { ProfileComponent } from './components/profile/profile.component';
 import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { ExperienceItemsComponent } from './components/experience-items/experience-items.component';
+import { EducationComponent } from './components/education/education.component';
+import { EducationItemsComponent } from './components/education-items/education-items.component';
 
 
 @NgModule({
@@ -19,7 +21,9 @@ import { ExperienceItemsComponent } from './components/experience-items/experien
     ProfileComponent,
     AboutComponent,
     ExperienceComponent,
-    ExperienceItemsComponent
+    ExperienceItemsComponent,
+    EducationComponent,
+    EducationItemsComponent
   ],
   imports: [
     CommonModule,
