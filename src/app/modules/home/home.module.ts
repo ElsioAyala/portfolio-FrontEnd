@@ -7,6 +7,8 @@ import { HeaderComponent } from './components/header/header.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { ProfileComponent } from './components/profile/profile.component';
 import { AboutComponent } from './components/about/about.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { ExperienceItemsComponent } from './components/experience-items/experience-items.component';
 
 
 @NgModule({
@@ -15,7 +17,9 @@ import { AboutComponent } from './components/about/about.component';
     HeaderComponent,
     BannerComponent,
     ProfileComponent,
-    AboutComponent
+    AboutComponent,
+    ExperienceComponent,
+    ExperienceItemsComponent
   ],
   imports: [
     CommonModule,
