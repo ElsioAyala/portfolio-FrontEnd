@@ -11,6 +11,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 import { ExperienceItemsComponent } from './components/experience-items/experience-items.component';
 import { EducationComponent } from './components/education/education.component';
 import { EducationItemsComponent } from './components/education-items/education-items.component';
+import { SkillsComponent } from './components/skills/skills.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { EducationItemsComponent } from './components/education-items/education-
     ExperienceComponent,
     ExperienceItemsComponent,
     EducationComponent,
-    EducationItemsComponent
+    EducationItemsComponent,
+    SkillsComponent
   ],
   imports: [
     CommonModule,
