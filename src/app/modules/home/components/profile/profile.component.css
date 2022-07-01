@@ -12,12 +12,12 @@
     color: black;
 }
 
-.column-perfil .card{
+.card{
     margin-top: -85px;
 }
 
 @media screen and (min-width: 768px){
-    .column-perfil .card{
+    .card{
         margin-top: -45px;
     }
     .perfil-img{
@@ -28,13 +28,48 @@
 
 @media screen and (min-width: 1200px) {
     .perfil-img{
-        /*width:  128px;
-        height: 128px;*/
         border: none !important;
     }
-    .column-perfil .card{
+    .card{
         background-color: white !important;
         box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
         margin-top: -160px;
     }
+    .sticky{
+        position: sticky;
+        height: fit-content;
+    }
+    
+    .sticky-container{
+        height: 100%;
+        flex-direction: column;
+    }
+}
+
+.edit{
+    bottom: 10px;
+    right: 0;
+    background-color: #e4e6eb;
+    height:36px;
+    width: 36px;
+    cursor: pointer;
+    transition: all .2s linear;
+}
+
+.edit:hover{
+    background-color: #ccced1;
+}
+
+/******* MODO OSCURO *********/
+
+.active-dark .card .perfil-img{ border-color: var(--dt-darkest) !important; }
+.active-dark .card-title { color: var(--title-color); }
+.active-dark .perfil-contacto span:hover{ color: #198754; }
+.active-dark .perfil-info .card-subtitle{ color: var(--title-color); }
+.active-dark .perfil-img{ border-color: var(--dt-darker) !important; }
+.active-dark .img .edit{ background-color: var(--black-light-color); }
+.active-dark .img .edit:hover{ background-color: var(--dt-darker); }
+
+@media screen and (min-width: 1200px) {
+    .active-dark .card { background-color: var(--dt-background) !important }
 }

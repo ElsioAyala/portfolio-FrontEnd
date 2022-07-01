@@ -1,0 +1,16 @@
+.porcentaje{
+    right:55px;
+    /*color: #fff*/
+    height: 24px;
+    line-height: 24px;
+}
+
+/**** MODO OSCURO ****/
+.active-dark.card {
+    background-color: var(--dt-background);
+}
+.active-dark .card-title {
+	color: var(--title-color);
+}
+
+.active-dark .progress { background-color: var(--dt-darker)}

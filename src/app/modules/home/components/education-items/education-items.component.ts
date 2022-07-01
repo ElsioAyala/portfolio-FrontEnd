@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
 
 @Component({
   selector: 'app-education-items',
@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EducationItemsComponent implements OnInit {
 
+  @Input() isDark:boolean = (localStorage.getItem("active-dark")) === "true";
+  
   constructor() { }
 
   ngOnInit(): void {

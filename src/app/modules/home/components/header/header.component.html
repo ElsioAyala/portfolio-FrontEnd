@@ -1,5 +1,5 @@
-<header>
-    <nav class="navbar main-nav-bar navbar-expand-md navbar-light bg-light fixed-top border-bottom">
+<header [ngClass]="{'active-dark': isDark}">
+    <nav class="navbar main-nav-bar navbar-expand-md navbar-light bg-light fixed-top border-bottom" [ngClass]="{'navbar-dark': isDark}">
         <div class="container-xl">
           <a class="navbar-brand" href="#"><img src="./assets/Logo-black.png" alt="Logo Argentina Programa" height="32px" class="logo"></a>
           
@@ -7,7 +7,7 @@
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-
+  
             <ul class="navbar-nav me-auto mb-2 mb-md-0 mb-lg-0">
               <li class="nav-item d-xl-none">
                 <a class="nav-link active" aria-current="page" href="#experiencia">Experiencia</a>
@@ -23,12 +23,13 @@
              
 
               <li class="nav-item d-xl-none">
-                <a class="nav-link" href="#proyectos">Proyectos</a>
+                <a class="nav-link" [routerLink]="['/proyectos']">Proyectos</a>
               </li>
             </ul>
-            
+
+          
             <div class="d-flex align-items-center">
-                <button class="btn btn-switch bg-white rounded-pill p-0 border position-relative cursor-pointer d-flex text-secondary me-4" id="btn-switch">
+                <button class="btn btn-switch bg-white rounded-pill p-0 border position-relative cursor-pointer d-flex text-secondary me-4" id="btn-switch" (click)="btnSwitch()" [ngClass]="{'active-dark': isDark}">
                     <span class="d-flex justify-content-center align-items-center" style="width: 30px; height: 30px"><i class="fa-solid fa-sun" ></i></span>
                     <span class="d-flex justify-content-center align-items-center" style="width: 30px; height: 30px"><i class="fa-solid fa-moon"></i></span>
                 </button>

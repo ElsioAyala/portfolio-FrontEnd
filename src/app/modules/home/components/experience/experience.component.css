@@ -1,0 +1,6 @@
+.active-dark.card {
+    background-color: var(--dt-background);
+}
+.active-dark .card-title {
+    color: var(--title-color) !important; 
+}

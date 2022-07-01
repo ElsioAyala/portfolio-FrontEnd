@@ -14,3 +14,22 @@ img.banner-img{
         height: 300px;
     }
 }
+
+.edit-portada{
+    bottom: 20px;
+    right: 20px;
+    background-color: #e4e6eb;
+    height:36px;
+    width: 36px;
+    cursor: pointer;
+    transition: all .2s linear;
+    z-index: 10;
+}
+
+.edit-portada:hover{
+    background-color: #ccced1;
+}
+
+/****** MODO OSCURO **********/
+.active-dark .edit-portada{ background-color: var(--black-light-color); }
+.active-dark .edit-portada:hover{ background-color: var(--dt-darker); }

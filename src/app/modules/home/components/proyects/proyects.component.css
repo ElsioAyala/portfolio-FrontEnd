@@ -1,0 +1,20 @@
+#proyectos .card {
+    border: none;
+    border-bottom: solid 1px #dee2e6 ;
+
+}
+
+
+/**** MODO OSCURO ****/
+.active-dark.card, .active-dark .card {
+    background-color: var(--dt-background);
+}
+.active-dark .card-title {
+	color: var(--title-color);
+}
+
+.active-dark .card { border-color: var(--dt-border) !important; }
+
+.footer-icons a{
+    color: #6c757d !important;
+}

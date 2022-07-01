@@ -13,6 +13,7 @@ import { EducationComponent } from './components/education/education.component';
 import { EducationItemsComponent } from './components/education-items/education-items.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
+import { NavColumnComponent } from './components/nav-column/nav-column.component';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { ProyectsComponent } from './components/proyects/proyects.component';
     EducationComponent,
     EducationItemsComponent,
     SkillsComponent,
-    ProyectsComponent
+    ProyectsComponent,
+    NavColumnComponent
   ],
   imports: [
     CommonModule,

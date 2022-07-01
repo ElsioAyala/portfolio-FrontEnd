@@ -1,0 +1,17 @@
+.nav-column .nav-item .active{
+    color: #198754 !important;
+    font-weight: bold;
+}
+
+.nav-column .nav-item a:hover {
+    color: #198754 !important;
+}
+
+.nav-column{
+    top: 80px;
+}
+
+/**** MODO OSCURO ****/
+.active-dark .nav-item a{
+    color: var(--text-color) !important;
+}

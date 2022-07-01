@@ -1,0 +1,15 @@
+.dropdown-item.active, .dropdown-item:active {
+    background-color: #198754;
+}
+
+/*** MODO OSCURO***/
+.active-dark .card {
+    background-color: var(--dt-background);
+}
+
+article.active-dark { border-color: var(--dt-border) !important; }
+
+.active-dark .text-muted {
+	color: #6c757d !important;
+}
+.active-dark .dropdown.edit button { color: var(--text-color);}

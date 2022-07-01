@@ -11,3 +11,17 @@
     --text-color: #b7c1c8;
     --alto-caja: 10px;
 }
+
+body{
+    background-color: #F0F2F5;
+}
+
+body.active-dark{
+    background-color: var(--dt-darkest);
+    color: var(--text-color) !important;
+}
+
+.card[id]{
+    scroll-margin-top: 90px;
+}
+
