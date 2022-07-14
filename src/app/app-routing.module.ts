@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import {RouterModule, Routes} from '@angular/router';
 import { LoginPageComponent } from '@modules/auth/components/login-page/login-page.component';
 import { HomeComponent } from '@modules/home/home.component';
+import { ChecLoginGuard } from '@core/guards/chec-login.guard';
 
 const routes: Routes = [
   {
@@ -11,7 +12,12 @@ const routes: Routes = [
   },
   {
     path: 'login',
-    component: LoginPageComponent
+    component: LoginPageComponent,
+    canActivate: [ChecLoginGuard],
+  },
+  {
+    path: '**',
+    redirectTo: '/'
   }
 ]
 

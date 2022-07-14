@@ -1,5 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { AuthService } from '@modules/auth/services/auth.service';
 import { ThemeService } from '@shared/services/theme.service';
+import { Observable } from 'rxjs';
 
 
 @Component({
@@ -10,11 +12,16 @@ import { ThemeService } from '@shared/services/theme.service';
 export class HeaderComponent implements OnInit {
 
   isDark:boolean = (localStorage.getItem("active-dark")) === "true";
+  isLogged:boolean = true;
+  /*isLogged$!:Observable<boolean>;*/
 
-  constructor(private themeService:ThemeService) { }
+  constructor(private themeService:ThemeService, private authService:AuthService) { }
 
   ngOnInit(): void {
     if (this.isDark) { document.body.classList.add("active-dark");}
+    this.authService.isLogged.subscribe(res => this.isLogged = res);
+    /*this.isLogged$ = this.authService.isLogged
+    this.isLogged$.subscribe((res) => this.isLogged = res);*/
   }
  
   btnSwitch(){
@@ -28,11 +35,9 @@ export class HeaderComponent implements OnInit {
     }else{   
       localStorage.setItem("active-dark", "false");
     }
-
-    
-
-    
-    
+  }
+  logout(){
+    this.authService.logout();
   }
 
 }

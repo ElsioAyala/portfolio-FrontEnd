@@ -1,1 +1,27 @@
-<p>login-page works!</p>
+<div class="form-container">
+<div class="container col-md-7 col-xl-3 form pt-4 pb-5 p-sm-5" [ngClass]="{'active-dark': isDark}">
+    <div>
+        <a class="navbar-brand d-flex justify-content-center mt-3 mb-5" href="#"><img src="./assets/Logo-black.png" alt="Logo Argentina Programa" height="32px" class="logo"></a>
+    </div>
+    <!--<pre>
+        {{loginForm.value | json}}
+    </pre>-->
+<form [formGroup]="loginForm" (ngSubmit)="sendCredentials()">
+    <div class="form-group">
+      <label for="InputEmail">Correo Electrónico</label>
+      <input formControlName="email" type="email" class="form-control mt-2" id="InputEmail" aria-describedby="emailHelp" placeholder="Escribe tu correo Electrónico">
+      <!--<small id="emailHelp" class="form-text text-muted" [ngClass]="{'active': loginForm.invalid}">We'll never share your email with anyone else.</small>-->
+    </div>
+    <div class="form-group mt-3">
+      <label for="InputPassword">Contraseña</label>
+      <input formControlName="password" type="password" class="form-control mt-2" id="InputPassword" placeholder="Escribir la contraseña">
+    </div>
+    <!--<div class="form-check" [ngClass]="{'active': loginForm.invalid}">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div> -->
+    <button type="submit" class="btn btn-success btn-block mt-4 mb-2">Iniciar sesión</button>
+  </form>
+  <a routerLink="/" type="submit" class="volver">Ir a portafolio</a>
+</div>
+</div>

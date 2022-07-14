@@ -19,6 +19,7 @@ body{
 body.active-dark{
     background-color: var(--dt-darkest);
     color: var(--text-color) !important;
+    min-height: 100vh;
 }
 
 .card[id]{
