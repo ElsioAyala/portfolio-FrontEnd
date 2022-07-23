@@ -8,6 +8,8 @@ import { Component, OnInit, Input } from '@angular/core';
 export class ExperienceItemsComponent implements OnInit {
 
   @Input() isDark:boolean = (localStorage.getItem("active-dark")) === "true";
+  @Input() data:any = {}
+  @Input() img:any = ""
 
   constructor() { }
 

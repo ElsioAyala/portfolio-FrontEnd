@@ -1,80 +1,16 @@
-<article class="row border-bottom m-lg-3" [ngClass]="{'active-dark': isDark}">
-    <div class="col-11">
-      <div class="card mb-3 border-0" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-2">
-            <img src="./assets/Qplus.png" class="img-fluid rounded-start pt-4" alt="...">
-          </div>
-          <div class="col-10">
-            <div class="card-body ps-4">
-              <h5 class="card-title">Front End Developer</h5>
-              <p class="card-text mb-0">QPlus Software Solutions · Jornada completa.</p>
-              <p class="card-text mb-0"><small class="text-muted">nov. 2020 - actualidad · 1 año 5 meses</small></p>
-              <p class="card-text"><small class="text-muted">Córdoba, Argentina</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-1"> 
-      <div class="dropdown pt-2 edit">
-        <button class="btn float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
-        </ul>
-      </div>
-    
-    </div>
-
-  </article>
   <article class="row border-bottom m-lg-3" [ngClass]="{'active-dark': isDark}">
     <div class="col-11">
       <div class="card mb-3 border-0" style="max-width: 540px;">
         <div class="row g-0">
           <div class="col-2">
-            <img src="./assets/G.jpg" class="img-fluid rounded-start pt-4" alt="...">
+            <img [src]="img" class="img-fluid rounded-start pt-4" alt="...">
           </div>
           <div class="col-10">
             <div class="card-body ps-4">
-              <h5 class="card-title">Front End Developer</h5>
-              <p class="card-text mb-0">Globant · Jornada completa</p>
-              <p class="card-text mb-0"><small class="text-muted">sept. 2019 - jun. 2021 · 1 año 10 meses</small></p>
-              <p class="card-text"><small class="text-muted">Buenos Aires, Provincia de Buenos Aires, Argentina</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-1"> 
-      <div class="dropdown pt-2 edit">
-        <button class="btn float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
-        </ul>
-      </div>
-    
-    </div>
-
-  </article>
-  <article class="row border-bottom m-lg-3" [ngClass]="{'active-dark': isDark}">
-    <div class="col-11">
-      <div class="card mb-3 border-0" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-2">
-            <img src="./assets/mercado libre.jpg" class="img-fluid rounded-start pt-4" alt="...">
-          </div>
-          <div class="col-10">
-            <div class="card-body ps-4">
-              <h5 class="card-title">Curstomer Experience</h5>
-              <p class="card-text mb-0">Mercado Libre</p>
-              <p class="card-text mb-0"><small class="text-muted">jun. 2019 - sept. 2019 · 4 meses</small></p>
-              <p class="card-text"><small class="text-muted"></small></p>
+              <h5 class="card-title">{{data.position}}</h5>
+              <p class="card-text mb-0">{{data.company}} · {{data.workingDay}}.</p>
+              <p class="card-text mb-0"><small class="text-muted">{{data.timeElapsed}}</small></p>
+              <p class="card-text"><small class="text-muted">{{data.place}}</small></p>
             </div>
           </div>
         </div>

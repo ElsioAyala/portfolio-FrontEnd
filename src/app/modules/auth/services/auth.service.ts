@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { Observable, map, BehaviorSubject } from 'rxjs';
 
 @Injectable({
@@ -9,7 +10,7 @@ export class AuthService {
 
   private loggedIn = new BehaviorSubject<boolean>(this.checkToken());
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private router: Router) { }
 
   get isLogged(): Observable<boolean> {
     return this.loggedIn.asObservable();
@@ -28,6 +29,7 @@ export class AuthService {
   logout():void {
     localStorage.removeItem('token');
     this.loggedIn.next(false);
+    this.router.navigate(['/','login']);
   }
   private checkToken():any{
     //verificar si el token no expiro

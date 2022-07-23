@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http'
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -14,6 +15,9 @@ import { EducationItemsComponent } from './components/education-items/education-
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { NavColumnComponent } from './components/nav-column/nav-column.component';
+import { NewExperienceComponent } from './components/new-experience/new-experience.component';
+import { ReactiveFormsModule } from '@angular/forms';
+
 
 
 @NgModule({
@@ -29,11 +33,15 @@ import { NavColumnComponent } from './components/nav-column/nav-column.component
     EducationItemsComponent,
     SkillsComponent,
     ProyectsComponent,
-    NavColumnComponent
+    NavColumnComponent,
+    NewExperienceComponent,
+
   ],
   imports: [
     CommonModule,
-    HomeRoutingModule
+    HomeRoutingModule,
+    HttpClientModule,
+    ReactiveFormsModule,
   ]
 })
 export class HomeModule { }

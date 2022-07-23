@@ -1,0 +1,102 @@
+{
+    "profile": {
+        "photo": "./assets/Perfil.jpg",
+        "cover": "",
+        "name": "Elsio Eloy Ayala",
+        "stack": "Desarrollador Full Stack Jr.",
+        "contacts": [
+            {
+                "name": "Email",
+                "icon": "envelope",
+                "link": "#"
+            },
+            {
+                "name": "GitGub",
+                "icon": "github",
+                "link": "#"
+            },
+            {
+                "name": "Twitter",
+                "icon": "twitter",
+                "link": "#"
+            },
+            {
+                "name": "Linkedin",
+                "icon": "linkedin",
+                "link": "#"
+            }
+        ]
+    },
+    "about":{
+        "label": "Acerca de",
+        "summary": "Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content. Some quick example text to build on the card title and make up the bulk of the card's content."
+    },
+    "experience": {
+        "_id": "aquiVieneElId",
+        "label": "Experiencia",
+        "list": [
+            {
+                "position": "Front End Developer",
+                "company": "QPlus Software Solutions",
+                "workingDay": "Jornada completa.",
+                "timeElapsed": "nov. 2020 - actualidad · 1 año 5 meses",
+                "place": "Córdoba, Argentina",
+                "image": "./assets/Qplus.png"          
+            },
+            {
+                "position": "Front End Developer",
+                "company": "Globant",
+                "workingDay": "Jornada completa.",
+                "timeElapsed": "sept. 2019 - jun. 2021 · 1 año 10 meses",
+                "place": "Buenos Aires, Provincia de Buenos Aires, Argentina",
+                "image": "./assets/G.jpg"          
+            },
+            {
+                "position": "Curstomer Experience",
+                "company": "Mercado Libre",
+                "workingDay": "Jornada parcial.",
+                "timeElapsed": "jun. 2019 - sept. 2019 · 4 meses",
+                "place": "",
+                "image": "./assets/mercado libre.jpg"          
+            }
+        ]
+    },
+    "education": {
+        "label": "Educación",
+        "list": [
+          {
+            "school": "Argentina Programa",
+            "title": "Desarrollo Web Full Stack",
+            "period":"feb. 2022 - ago. 2022",
+            "image": ""
+          },
+          {
+            "school": "Intituto Superior de Curuzú Cuatiá",
+            "title": "Tecnico Superior Analista Programador",
+            "period":"2010 - 2012",
+            "image": ""
+          }
+        ]
+    },
+    "skills": {
+        "label": "Skills",
+        "list": [
+            {
+                "technology": "",
+                "progress": ""
+            }
+        ]
+    },
+    "projects": {
+        "label": "Proyectos",
+        "list": [
+            {
+                "name": "",
+                "summary": "",
+                "repository": "",
+                "demo": "",
+                "image": ""
+            }
+        ]
+    }
+}

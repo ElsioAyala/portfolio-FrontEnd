@@ -11,7 +11,7 @@ export class ChecLoginGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router){}
   
   private isLogged:boolean = false;
-  private isLogged$!: Observable<boolean>;
+  private isLogged$: Observable<boolean> = new Observable;
 
 
   canActivate(): boolean {
