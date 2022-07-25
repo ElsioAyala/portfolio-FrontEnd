@@ -36,6 +36,7 @@
         "label": "Experiencia",
         "list": [
             {
+                "_id": "1",
                 "position": "Front End Developer",
                 "company": "QPlus Software Solutions",
                 "workingDay": "Jornada completa.",
@@ -44,6 +45,7 @@
                 "image": "./assets/Qplus.png"          
             },
             {
+                "_id": "2",
                 "position": "Front End Developer",
                 "company": "Globant",
                 "workingDay": "Jornada completa.",
@@ -52,6 +54,7 @@
                 "image": "./assets/G.jpg"          
             },
             {
+                "_id": "3",
                 "position": "Curstomer Experience",
                 "company": "Mercado Libre",
                 "workingDay": "Jornada parcial.",

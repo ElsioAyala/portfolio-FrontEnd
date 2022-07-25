@@ -14,7 +14,7 @@ export class ExperienceComponent implements OnInit {
 
   isDark:boolean = (localStorage.getItem("active-dark")) === "true";
   isDark$!: Observable<boolean>;
-  constructor(public themeService:ThemeService, private porfolioService:PorfolioService, private newExperienceService: NewExperienceService) { }
+  constructor(public themeService:ThemeService, private porfolioService:PorfolioService, private newExperienceService: NewExperienceService) { } 
 
   data:Experience = {_id:"", label: "", list:[]};
 

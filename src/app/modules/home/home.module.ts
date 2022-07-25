@@ -17,6 +17,7 @@ import { ProyectsComponent } from './components/proyects/proyects.component';
 import { NavColumnComponent } from './components/nav-column/nav-column.component';
 import { NewExperienceComponent } from './components/new-experience/new-experience.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
 
 
 
@@ -35,6 +36,7 @@ import { ReactiveFormsModule } from '@angular/forms';
     ProyectsComponent,
     NavColumnComponent,
     NewExperienceComponent,
+    EditExperienceComponent,
 
   ],
   imports: [

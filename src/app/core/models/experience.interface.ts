@@ -1,4 +1,5 @@
 interface List{
+    _id: string;
     position: string;
     company: string;
     workingDay:string;

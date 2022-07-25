@@ -3,7 +3,7 @@
         <h3 class="card-title d-flex ">{{data.label}}
             <button (click)="addExperience()" type="button" class="btn btn-outline-success btn-sm ms-3 edit" data-bs-toggle="modal" data-bs-target="#experienceModal">Añadir experiencia</button>
         </h3> 
-        <app-experience-item [isDark]="isDark" *ngFor="let item of data.list" [data] = "item" [img]="item.image"></app-experience-item>
+        <app-experience-item [isDark]="isDark" *ngFor="let item of data.list" [data]="item" [img]="item.image" [_id]="item._id"></app-experience-item>
     </div>
   
     
