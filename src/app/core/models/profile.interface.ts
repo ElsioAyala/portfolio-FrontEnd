@@ -1,14 +1,10 @@
-interface Contact{
-    name: string;
-    icon: string;
-    link: string;
-
-}
-
 export interface Profile{
+    id_pro : number;
+    name: string;
+    apellido: string;
+    email: string;
+    stack: string;
+    about: string;
     photo: string;
     cover: string;
-    name: string;
-    stack: string;
-    contacts: Array<Contact>;
 }

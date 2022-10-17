@@ -8,6 +8,7 @@ import { EditExperienceService } from '@modules/home/services/edit-experience.se
 })
 export class ExperienceItemsComponent implements OnInit {
 
+
   @Input() isDark:boolean = (localStorage.getItem("active-dark")) === "true";
   @Input() data:any = {}
   @Input() img:any = ""

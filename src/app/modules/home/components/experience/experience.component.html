@@ -1,9 +1,9 @@
 <section class="card mt-4 mt-xl-2" id="experiencia" [ngClass]="{'active-dark':isDark}">
     <div class="card-body">
-        <h3 class="card-title d-flex ">{{data.label}}
+        <h3 class="card-title d-flex "> Experiencia
             <button (click)="addExperience()" type="button" class="btn btn-outline-success btn-sm ms-3 edit" data-bs-toggle="modal" data-bs-target="#experienceModal">Añadir experiencia</button>
         </h3> 
-        <app-experience-item [isDark]="isDark" *ngFor="let item of data.list" [data]="item" [img]="item.image" [_id]="item._id"></app-experience-item>
+        <app-experience-item [isDark]="isDark" *ngFor="let item of data" [data]="item" [img]="item.image" [_id]="item._id"></app-experience-item>
     </div>
   
     

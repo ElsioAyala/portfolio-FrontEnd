@@ -3,6 +3,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from '@modules/auth/services/auth.service';
 import { ThemeService } from '@shared/services/theme.service';
+import { NgToastService } from 'ng-angular-popup';
 import { Observable } from 'rxjs';
 
 @Component({
@@ -19,7 +20,8 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
   constructor(
     private themeService: ThemeService, 
     private authService: AuthService,
-    private router: Router) { }
+    private router: Router,
+    private toast: NgToastService) { }
 
   ngOnInit(): void {
     this.isDark$ = this.themeService.getIsDark();
@@ -30,23 +32,35 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
       password: new FormControl('', [Validators.required])
     })
   }
+
   ngAfterViewInit(): void {
     if(this.isDark) {
       document.body.classList.add("active-dark")
     }
   }
+
+  showError(message: string): void {
+    this.toast.error({detail:"ERROR",summary: message, duration:5000});
+  }
+  
+  showSuccess(message: string): void {
+    this.toast.success({detail:"SUCCESS",summary: message, duration:5000});
+  }
+
+
   sendCredentials(){
-    const credentials = this.loginForm.value
-    this.authService.login().subscribe( res => {
-      console.log('res -->',res)
+    const credentials = this.loginForm.value;
+    this.authService.login(credentials).subscribe( res => {
       if(res){
+        console.log("token viene?: ",res);
         this.router.navigate(['/'])
+        this.showSuccess("Bienvenido: " + res.userName);
       }
+    }, (err) => {
+      this.showError(err.message);
     })
     
   }
 
-
-  
 
 }

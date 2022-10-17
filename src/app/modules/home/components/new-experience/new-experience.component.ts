@@ -55,7 +55,9 @@ export class NewExperienceComponent implements OnInit {
     .subscribe((response) => {
       console.log('OK', response)
       //PENDIENTE: ver la forma de cerrar el modal
-    }) 
+    }, (errr) =>{
+      
+    })
 
   }
 

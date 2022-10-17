@@ -5,6 +5,7 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
 import { HomeModule } from '@modules/home/home.module';
 import { AuthModule } from '@modules/auth/auth.module';
+import { NgToastModule } from 'ng-angular-popup';
 
 
 @NgModule({
@@ -12,6 +13,7 @@ import { AuthModule } from '@modules/auth/auth.module';
     AppComponent,
   ],
   imports: [
+    NgToastModule,
     BrowserModule,
     AppRoutingModule,
     HomeModule,

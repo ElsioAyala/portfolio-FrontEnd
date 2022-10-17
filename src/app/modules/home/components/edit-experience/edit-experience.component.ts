@@ -16,11 +16,11 @@ export class EditExperienceComponent implements OnInit {
   formItemsGroup$ = this.editExperienceService.itemsFormGroup$
   /*data$!: Observable<any>
   data:any = "hola"*/
-  
+    
   ngOnInit(): void {
     /*this.data$ = this.editExperienceService.data$
     this.data$.subscribe(data => {console.log(data)})*/
-
+    
     this.editExperienceService.data$.subscribe(data => { 
       /*this.data = data*/
       this.newExperience = new FormGroup({

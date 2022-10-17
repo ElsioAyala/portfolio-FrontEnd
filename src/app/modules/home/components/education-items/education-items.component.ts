@@ -1,4 +1,7 @@
 import { Component, OnInit, Input} from '@angular/core';
+import { Education } from '@core/models/education.interface';
+import { EducationService } from '@modules/home/services/education.service';
+import { NgToastService } from 'ng-angular-popup';
 
 @Component({
   selector: 'app-education-items',
@@ -8,10 +11,34 @@ import { Component, OnInit, Input} from '@angular/core';
 export class EducationItemsComponent implements OnInit {
 
   @Input() isDark:boolean = (localStorage.getItem("active-dark")) === "true";
-  
-  constructor() { }
+  @Input() data!:Education 
+  @Input() img:any = ""
+  @Input() _id:any = ""
+  constructor(private educationService:EducationService, private toast: NgToastService) { }
 
   ngOnInit(): void {
   }
 
+  showInfo(message: string) {
+    this.toast.info({detail:"INFO",summary:message, sticky:true});
+  }
+  showSuccess(message: string) {
+    this.toast.success({detail:"SUCCESS",summary:message ,duration:5000});
+  }
+
+  //  se envia los datos del item donde se llamo al metodo edit.
+  edit(data:any){
+    this.educationService.setdataItem(data);
+  }
+
+  delete(id:number){
+    if(confirm("¿Desea Eliminar este Registro? 👀")){
+      this.educationService.deleteEducation(id).subscribe(response => {
+        this.showSuccess(response.message);
+        this.educationService.reloadEducation();
+      },(err) => {
+        this.showInfo(err.message);
+      });
+    }
+  }
 }

@@ -7,9 +7,9 @@
           </div>
           <div class="col-10">
             <div class="card-body ps-4">
-              <h5 class="card-title">Argentina Programa</h5>
-              <p class="card-text mb-0">Desarrollo Web Full Stack</p>
-              <p class="card-text mb-0"><small class="text-muted">feb. 2022 - ago. 2022</small></p>
+              <h5 class="card-title">{{data.school}}</h5>
+              <p class="card-text mb-0">{{data.title}}</p>
+              <p class="card-text mb-0"><small class="text-muted">{{data.period}}</small></p>
             </div>
           </div>
         </div>
@@ -21,42 +21,10 @@
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
+          <li><a class="dropdown-item" href="#" (click)="edit(data)" data-bs-toggle="modal" data-bs-target="#educationEditModal"><i class="fa-solid fa-pen-to-square"> </i> Editar</a></li>
+          <li><a class="dropdown-item" href="#" (click)="delete(data.id_edu)"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
         </ul>
       </div>
     
     </div>
 
-  </article>
-  <article class="row border-bottom m-lg-3" [ngClass]="{'active-dark': isDark}">
-    <div class="col-11">
-      <div class="card mb-3 border-0" style="max-width: 540px;">
-        <div class="row g-0">
-          <div class="col-2">
-            <img src="./assets/Int. Curuzú Cuatiá.jpg" class="img-fluid rounded-start pt-4" alt="...">
-          </div>
-          <div class="col-10">
-            <div class="card-body ps-4">
-              <h5 class="card-title">Intituto Superior de Curuzú Cuatiá</h5>
-              <p class="card-text mb-0">Tecnico Superior Analista Programador</p>
-              <p class="card-text mb-0"><small class="text-muted">2010 - 2012</small></p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-1"> 
-      <div class="dropdown pt-2 edit">
-        <button class="btn float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-ellipsis-vertical"></i>
-        </button>
-        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
-        </ul>
-      </div>
-    
-    </div>
-
-  </article>

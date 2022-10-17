@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ThemeService } from '@shared/services/theme.service';
 import { Observable } from 'rxjs';
 
@@ -13,6 +13,8 @@ export class SkillsComponent implements OnInit {
   isDark$!: Observable<boolean>
 
   constructor(private themeService: ThemeService) { }
+
+  @Input() data:any;
 
   ngOnInit(): void {
     this.isDark$ = this.themeService.getIsDark();

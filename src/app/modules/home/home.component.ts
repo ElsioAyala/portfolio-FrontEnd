@@ -1,4 +1,7 @@
 import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Education } from '@core/models/education.interface';
+import { Observable } from 'rxjs';
+import { PortafolioService } from './services/portafolio.service';
 
 @Component({
   selector: 'app-home',
@@ -7,9 +10,22 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit, AfterViewInit {
 
-  constructor() { }
+    skills = null
+    experience = null
+    education!: Array<Education>;
 
-  ngOnInit(): void {}
+    constructor(private portafolioService: PortafolioService) { }
+
+  ngOnInit(): void {
+    this.portafolioService.getData().subscribe(response => {
+        const {skills} = response;
+        const {experiences} = response;
+        const {educations} = response;
+        this.skills = skills;
+        this.experience = experiences;
+        this.education = educations;
+    })
+  }
 
 
 

@@ -14,7 +14,7 @@ export class ProfileComponent implements OnInit {
   isDark:boolean = (localStorage.getItem("active-dark")) === "true";
   isDark$: Observable<boolean> = new Observable;
 
-  data:Profile = {photo:"", cover:"",name: "",stack:"", contacts:[]};
+  /*data:Profile = {photo:"", cover:"",name: "",stack:"", contacts:[]};*/
   data$:Observable<Profile> = new Observable
   
   constructor(private themeService: ThemeService, private porfolioService: PorfolioService) { }
@@ -24,7 +24,7 @@ export class ProfileComponent implements OnInit {
     this.isDark$.subscribe(res => this.isDark = res);
 
     this.data$ = this.porfolioService.profile
-    this.data$.subscribe(res => this.data = res);
+    /*this.data$.subscribe(res => this.data = res);*/
     /*this.porfolioService.profile.subscribe(res => this.data = res);*/
   }
 

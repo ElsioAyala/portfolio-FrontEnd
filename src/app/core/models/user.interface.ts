@@ -1,9 +1,11 @@
 export interface User {
-    username: string;
+    email: string;
     password: string;
 }
 
-export interface UserREsponse {
-    /*message: string;*/
+export interface UserResponse {
     token: string;
+    bearer: string;
+    userName: string;
+    authorities: Array<any>;
 }

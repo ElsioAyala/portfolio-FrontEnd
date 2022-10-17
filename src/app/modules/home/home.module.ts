@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'
 
 import { HomeRoutingModule } from './home-routing.module';
 import { HomeComponent } from './home.component';
@@ -18,6 +18,10 @@ import { NavColumnComponent } from './components/nav-column/nav-column.component
 import { NewExperienceComponent } from './components/new-experience/new-experience.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
+import { TokenSessionInterceptor } from '@core/interceptors/token-session.interceptor';
+import { EditEducationComponent } from './components/education/Modals/edit-education/edit-education.component';
+import { NewEducationComponent } from './components/education/Modals/new-education/new-education.component';
+import { AppRoutingModule } from 'src/app/app-routing.module';
 
 
 
@@ -37,6 +41,8 @@ import { EditExperienceComponent } from './components/edit-experience/edit-exper
     NavColumnComponent,
     NewExperienceComponent,
     EditExperienceComponent,
+    NewEducationComponent,
+    EditEducationComponent,
 
   ],
   imports: [
@@ -44,6 +50,13 @@ import { EditExperienceComponent } from './components/edit-experience/edit-exper
     HomeRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
+  ],
+  providers: [
+    {
+      useClass:TokenSessionInterceptor,
+      provide:HTTP_INTERCEPTORS,
+      multi:true,
+    }
   ]
 })
 export class HomeModule { }

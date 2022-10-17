@@ -1,17 +1,11 @@
-interface List{
-    _id: string;
+export interface Experience {
+    id_exp: number;
     position: string;
     company: string;
-    workingDay:string;
+    workday:string;
     timeElapsed: string;
     place: string;
     image: string;
-}
-export interface Experience 
-{
-    _id:string;
-    label: string;
-    list: Array<List>;
 }
 
 

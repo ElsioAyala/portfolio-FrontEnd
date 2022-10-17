@@ -1,12 +1,12 @@
-<div class="modal fade" id="experienceEditModal" tabindex="-1" aria-labelledby="experienceModalLabel" aria-hidden="true">
+<div class="modal fade" id="educationEditModal" tabindex="-1" aria-labelledby="educationModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       <div class="modal-content">
         <div class="modal-header">
-          <h5 class="modal-title" id="exampleModalLabel">Experiencia</h5>
+          <h5 class="modal-title" id="exampleModalLabel">Actualizar Educación</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body">
-          <form [formGroup]="newExperience" (ngSubmit)="saveEditExperience()">
+          <form [formGroup]="editEducation" (ngSubmit)="saveEditeducation()">
             
             <ng-container formArrayName="item" *ngFor="let field of this.formItemsGroup$ | async; let i = index">
               <div class="form-input mt-3" [formGroupName] = "i">
@@ -14,8 +14,6 @@
                 <input class="form-control m-2" formControlName="value" type="{{field.value.type}}">
               </div>
             </ng-container>
-  
-       
   
             <div class="modal-footer mt-5">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
