@@ -4,6 +4,10 @@
     height: 24px;
     line-height: 24px;
 }
+.card{
+    border: none;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
 
 /**** MODO OSCURO ****/
 .active-dark.card {
@@ -14,3 +18,50 @@
 }
 
 .active-dark .progress { background-color: var(--dt-darker)}
+
+
+.active-dark .dropdown.edit button { color: var(--text-color);}
+
+.btnEditSkill{
+    right:15px;
+}
+
+.progress-bar{
+    text-transform: uppercase;
+}
+.editSkills .progress{
+    width: 90%;
+}
+
+.editSkills .porcentaje{
+    right:18%;
+    
+}
+
+.editSkills .dropdown.edit button {
+    margin-top: -8px;
+}
+
+.dropdown-menu a:active{
+    background-color: #198754 !important;
+    color: #fff !important;
+}
+
+@media screen and (min-width: 991px){
+    .editSkills .porcentaje{
+        right: 15%;
+    }
+
+    .editSkills .btnEditSkill{
+        right:44px;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    .editSkills .porcentaje{
+        right:20%;
+    }
+    .editSkills .progress{
+        width: 89%;
+    }
+}

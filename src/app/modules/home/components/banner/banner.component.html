@@ -1,4 +1,4 @@
 <div class="container-fluit p-0 banner position-relative" [ngClass]="{'active-dark': isDark}">
-    <img src="./assets/Banner.jpg" alt="Banner" class="banner-img"/>
-    <div class="edit-portada position-absolute rounded d-flex justify-content-center align-items-center"><i class="fa-solid fa-camera"></i></div>
+    <img *ngIf="cover !== null" src="{{cover}}" alt="Banner" class="banner-img"/>
+    <div *ngIf=isLogged data-bs-toggle="modal" data-bs-target="#profileModal" class="edit-portada position-absolute rounded d-flex justify-content-center align-items-center"><i class="fa-solid fa-camera"></i></div>
 </div>

@@ -1,0 +1,57 @@
+<div class="modal fade" id="projectsModal" tabindex="-1" aria-labelledby="proyectsModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="proyectsModalLabel">Proyectos</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="projectsModalForm" (ngSubmit)="saveProject()" id="projectsFormModal">
+
+          <div class="form-group mt-3">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input formControlName="name" type="text" class="form-control" id="inputName" placeholder="">
+          </div>
+          
+          <div class="form-group mt-3">
+            <label for="inputSummary" class="form-label">Resumen</label>
+            <textarea formControlName="summary" class="form-control" rows="3" id="inputSummary"
+              placeholder=""></textarea>
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="inputRepository" class="form-label">Repositorio</label>
+            <input formControlName="repository" type="text" class="form-control" id="inputRepository">
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="inputDemo" class="form-label">Demo</label>
+            <input formControlName="demo" type="text" class="form-control" id="inputDemo">
+          </div>
+
+          <div class="form-group mt-4">
+            <label for="inputImage" class="form-label">Imagen</label>
+            <img *ngIf="imageUrl === ''; else image" class="imgNotFount" src="./assets/faltaImagen.jpg" alt="Image Review" height="80%" width="20%" style="object-fit: cover;">
+            <ng-template #image><img  [src]="imageUrl" alt="Image Review" height="80%" width="20%" style="object-fit: cover;"></ng-template>
+            <div class="btnFile">
+              Añadir Imagen
+            <input (change)="captureFile($event)" formControlName="image" type="file" class="form-file" id="inputImage">
+            </div>
+          </div>
+
+          <div class="modal-footer mt-5">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button [disabled]="projectsModalForm.invalid" type="submit" class="btn btn-success" *ngIf="!idEdit else editProjects">Guardar Cambios</button>
+            <ng-template #editProjects>
+              <button [disabled]="projectsModalForm.invalid" type="button" class="btn btn-success" (click)="editProject()">Actualizar</button>
+            </ng-template>
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>

@@ -4,6 +4,11 @@
 
 }
 
+#proyectos.card{
+    border: none;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}
+
 
 /**** MODO OSCURO ****/
 .active-dark.card, .active-dark .card {
@@ -18,3 +23,29 @@
 .footer-icons a{
     color: #6c757d !important;
 }
+
+.active-dark .footer-icons .text-body:hover{
+    color: var(--title-color) !important;
+}
+
+.footer-icons a:hover{
+    color: #454b50 !important;
+}
+
+
+.dropdown-menu a{
+    color: rgb(33, 37, 41) !important;
+}
+.dropdown-menu a:hover{
+    color: rgb(33, 37, 41) !important;
+}
+
+.dropdown-menu a:active{
+    background-color: #198754 !important;
+    color: #fff !important;
+}
+
+.dropdown-menu li:hover{
+    background-color: red !important;
+}
+

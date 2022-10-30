@@ -1,0 +1,40 @@
+<div class="modal fade" id="skillsModal" tabindex="-1" aria-labelledby="skillsModalLabel" aria-hidden="true" [ngClass]="{'active-dark': isDark}">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Skills</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          
+          <form [formGroup]="skillsModalForm" (ngSubmit)="saveSkills()" id="skillsFormModal">
+        
+            <div class="form-group">
+                <label for="inputTechnology" class="form-label">Tecnologia</label>
+                <input formControlName="technology" type="text" class="form-control" id="inputTechnology" placeholder="">
+                
+            </div>
+            <div class="form-group">
+                <label for="inputProgress" class="form-label">Porcentaje</label><span *ngIf="skillsModalForm.value.progress; else o">{{ skillsModalForm.value.progress}}%</span>
+                <ng-template #o><span>50%</span></ng-template>
+                <input formControlName="progress" type="range" class="form-range" id="inputProgress" min="0" max="100" step="5" value="50">
+                
+            </div>
+
+  
+            <div class="modal-footer mt-5">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                <button [disabled]="skillsModalForm.invalid" type="submit" class="btn btn-success" *ngIf="!idEdit else editSkills" >Guardar Cambios</button>
+                <ng-template #editSkills>
+                    <button [disabled]="skillsModalForm.invalid" type="button" class="btn btn-success" (click)="editSkill()">Actualizar</button>
+                </ng-template>
+            </div>
+  
+          </form>
+          
+
+        </div>
+      </div>
+    </div>
+  </div>
+  

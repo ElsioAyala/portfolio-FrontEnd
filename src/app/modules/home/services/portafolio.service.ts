@@ -11,13 +11,11 @@ export class PortafolioService {
   private URL = environment.api;
 
   constructor(private httpClient: HttpClient) { }
+  
   getData():Observable<any> {
     return this.httpClient.get(`${this.URL}/public/profile/1`)
     .pipe(
       map((response:any) => {
-        
-        const {experiences} = response;
-        console.log("resdsdsdsdsdsdsdsd", experiences)
         return response;
       }),
       catchError(() => of([]))

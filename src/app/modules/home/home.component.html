@@ -1,22 +1,21 @@
 <app-header></app-header>
-<app-banner></app-banner>
+<app-banner [cover]="cover"></app-banner>
 <main>
     <section class="container">
         <div class="row mt-4">
             <div class="col-12 col-xl-4 column-perfil">
-                <app-profile></app-profile>
+                <app-profile [data]="profile" [contacts]="contacts"></app-profile>
             </div>
             <div class="col-12 col-xl-6">
                 <app-experience [data]="experience" ></app-experience>
                 <app-education [data]="education"></app-education>
                 <app-skills [data]="skills"></app-skills>
-                <app-proyects></app-proyects>
+                <app-proyects [data]="projects"></app-proyects>
             </div>
             <div class="col-12 col-xl-2">
                 <app-nav-column></app-nav-column>
             </div>
         </div>
     </section>
-    <app-new-experience></app-new-experience>
-    <app-edit-experience></app-edit-experience>
+    
 </main>

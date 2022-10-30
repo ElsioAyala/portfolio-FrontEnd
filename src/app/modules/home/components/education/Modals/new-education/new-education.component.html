@@ -13,14 +13,21 @@
               <div class="form-input mt-3" [formGroupName] = "i">
                 <label>{{field.value.key}}</label>
                 <input *ngIf="field.value.key !== 'Imagen'; else inputFile" class="form-control m-2" formControlName="value" type="text">
-                <ng-template #inputFile><input (change)="captureFile($event)" class="form-control m-2" formControlName="value" type="file"></ng-template>
+                <ng-template #inputFile>
+                  <img *ngIf="imageUrl === ''; else image" class="imgNotFount" src="./assets/faltaImagen.jpg" alt="Image Review" height="80%" width="20%" style="object-fit: cover;">
+                  <ng-template #image><img  [src]="imageUrl" alt="Image Review" height="80%" width="20%" style="object-fit: cover;"></ng-template>
+                  <div class="btnFile">
+                    Añadir Imagen
+                    <input (change)="captureFile($event)" class="form-file" formControlName="value" type="file">
+                </div>
+                </ng-template>
               </div>
             </ng-container>
 
   
             <div class="modal-footer mt-5">
               <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
-              <button type="submit" class="btn btn-success">Guardar Cambios</button>
+              <button [disabled]="newEducation.invalid" type="submit" class="btn btn-success">Guardar Cambios</button>
             </div>
   
           </form>

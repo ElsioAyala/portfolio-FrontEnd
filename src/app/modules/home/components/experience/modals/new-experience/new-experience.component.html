@@ -1,0 +1,39 @@
+<div class="modal fade" id="newExperienceModal" tabindex="-1" aria-labelledby="newExperienceModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="newExperienceModalLabel">Experiencia</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+
+                <form [formGroup]="newExperience" (ngSubmit)="saveExperience()" id="formEducation">
+
+                    <ng-container formArrayName="item" *ngFor="let field of formItemsGroup$ | async; let i = index">
+                        <div class="form-input mt-3" [formGroupName]="i">
+                            <label>{{field.value.key}}</label>
+                            <input *ngIf="field.value.key !== 'Imagen'; else inputFile" class="form-control m-2"
+                                formControlName="value" type="text">
+                            <ng-template #inputFile>
+                                <img *ngIf="imageUrl === ''; else image" class="imgNotFount" src="./assets/faltaImagen.jpg" alt="Image Review" height="80%" width="20%" style="object-fit: cover;">
+                                <ng-template #image><img  [src]="imageUrl" alt="Image Review" height="80%" width="20%" style="object-fit: cover;"></ng-template>
+                                <div class="btnFile">
+                                    Añadir Imagen
+                                    <input (change)="captureFile($event)" class="form-file" formControlName="value" type="file">
+                                </div>
+                            </ng-template>
+                        </div>
+                    </ng-container>
+
+                    <div class="modal-footer mt-5">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+                        <button [disabled]="newExperience.invalid" type="submit" class="btn btn-success">Guardar Cambios</button>
+                    </div>
+                    
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>

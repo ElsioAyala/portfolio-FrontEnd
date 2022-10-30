@@ -1,0 +1,56 @@
+<div class="modal fade" id="contactModal" tabindex="-1" aria-labelledby="contactModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="profileModalLabel">Editar Contactos</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+  
+          <form [formGroup]="contactModalForm" (ngSubmit)="saveContact()" id="projectsFormModal">
+  
+            <div class="form-group mt-3">
+              <label for="inputFacebook" class="form-label">Facebook</label>
+              <input formControlName="facebook" type="text" class="form-control" id="inputFacebook" placeholder="">
+            </div>
+
+            
+            <div class="form-group mt-3">
+                <label for="inputTwitter" class="form-label">Twitter</label>
+                <input formControlName="twitter" type="text" class="form-control" id="inputTwitter" placeholder="">
+              </div>
+
+              <div class="form-group mt-3">
+                <label for="inputEmail" class="form-label">Email</label>
+                <input formControlName="email" type="text" class="form-control" id="inputEmail" placeholder="">
+              </div>
+              <div class="form-group mt-3">
+                <label for="inputGithub" class="form-label">GitHub</label>
+                <input formControlName="github" type="text" class="form-control" id="inputGithub" placeholder="">
+              </div>
+              <div class="form-group mt-3">
+                <label for="inputLinkedin" class="form-label">Linkedin</label>
+                <input formControlName="linkedin" type="text" class="form-control" id="inputLinkedin" placeholder="">
+              </div>
+              <div class="form-group mt-3">
+                <label for="inputDiscord" class="form-label">Discord</label>
+                <input formControlName="discord" type="text" class="form-control" id="inputDiscord" placeholder="">
+              </div>
+              <div class="form-group mt-3">
+                <label for="inputInstagram" class="form-label">Instagram</label>
+                <input formControlName="instagram" type="text" class="form-control" id="inputInstagram" placeholder="">
+              </div>
+  
+            <div class="modal-footer mt-5">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              <button [disabled]="contactModalForm.untouched" type="submit" class="btn btn-success">Guardar Cambios</button>
+          
+            </div>
+  
+          </form>
+  
+  
+        </div>
+      </div>
+    </div>
+  </div>

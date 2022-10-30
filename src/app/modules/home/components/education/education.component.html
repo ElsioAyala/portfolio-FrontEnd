@@ -1,6 +1,6 @@
 <section class="card mt-4 border-0 shadow-sm rounded" id="educacion" [ngClass]="{'active-dark': isDark}">
-    <div class="card-body">
-      <h3 class="card-title">Educación <button type="button" class="btn btn-outline-success btn-sm ms-3 edit" data-bs-toggle="modal" data-bs-target="#educationModal">Añadir educación</button></h3>
+    <div class="card-body aaprueba">
+      <h3 class="card-title">Educación <button *ngIf="isLogged" type="button" class="btn btn-outline-success btn-sm ms-3 edit" data-bs-toggle="modal" data-bs-target="#educationModal">Añadir educación</button></h3>
       <app-education-items [isDark]="isDark" *ngFor="let item of data" [data]="item" ></app-education-items>
     </div>
     <app-new-education></app-new-education>

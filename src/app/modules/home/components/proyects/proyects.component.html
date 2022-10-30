@@ -1,23 +1,23 @@
 <section class="card mt-4 mb-4" id="proyectos" [ngClass]="{'active-dark': isDark}">
     <div class="card-body">
-      <h3 class="card-title">Proyectos <button type="button" class="btn btn-outline-success btn-sm ms-3 edit">Añadir proyecto</button></h3>
+      <h3 class="card-title">Proyectos <button *ngIf="isLogged" type="button" class="btn btn-outline-success btn-sm ms-3 edit" data-bs-toggle="modal" data-bs-target="#projectsModal" (click)="add()">Añadir proyecto</button></h3>
       <div class="row row-cols-1 row-cols-md-2 row-cols-xl-1 g-4 mt-3 m-xl-3">
-        <div class="col">
+        <div class="col" *ngFor="let project of data">
           <div class="card">
-            <img src="./assets/proyectos-sociales.webp" class="card-img-top" alt="...">
+            <img src="{{project.image}}" class="card-img-top" alt="...">
             <div class="card-body">
-              <h5 class="card-title">Proyect Name</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+              <h5 class="card-title">{{project.name}}</h5>
+              <p class="card-text">{{project.summary}}</p>
               <div class="d-flex justify-content-end footer-icons">
-                <a class="ps-3 pe-2 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Demo" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                <a class="ps-2 pe-3 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Repositorio GitHub" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <div class="dropdown edit-proyectos">
+                <a class="ps-3 pe-2 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Demo" href="{{project.demo}}" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
+                <a class="ps-2 pe-3 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Repositorio GitHub" href="{{project.repository}}" target="_blank"><i class="fa-brands fa-github"></i></a>
+                <div *ngIf="isLogged" class="dropdown edit-proyectos">
                   <button class="btn btn-outline-success btn-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     <i class="fa-solid fa-ellipsis-vertical"></i> Acciones
                   </button>
                   <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
+                    <li><a class="dropdown-item" href="#" (click)="edit(project.id_pro)" data-bs-toggle="modal" data-bs-target="#projectsModal"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
+                    <li><a class="dropdown-item" href="#" (click)="delete(project.id_pro)"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
                   </ul>
                 </div>
               </div>
@@ -25,72 +25,7 @@
           </div>
           
         </div>
-        <div class="col">
-          <div class="card">
-            <img src="./assets/gestion-de-proyectos.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Proyect Name</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-end footer-icons">
-                <a class="ps-3 pe-2 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Demo" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                <a class="ps-2 pe-3 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Repositorio GitHub" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <div class="dropdown edit-proyectos">
-                  <button class="btn btn-outline-success btn-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis-vertical"></i> Acciones
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="./assets/banner-siete-pasos-gestion-proyectos.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Proyect Name</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content.</p>
-              <div class="d-flex justify-content-end footer-icons">
-                <a class="ps-3 pe-2 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Demo" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                <a class="ps-2 pe-3 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Repositorio GitHub" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <div class="dropdown edit-proyectos">
-                  <button class="btn btn-outline-success btn-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis-vertical"></i> Acciones
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="col">
-          <div class="card">
-            <img src="./assets/article-project-planning-project-design-2x.jpg" class="card-img-top" alt="...">
-            <div class="card-body">
-              <h5 class="card-title">Proyect Name</h5>
-              <p class="card-text">This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-              <div class="d-flex justify-content-end footer-icons">
-                <a class="ps-3 pe-2 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Demo" href="#" target="_blank"><i class="fa-solid fa-arrow-up-right-from-square"></i></a>
-                <a class="ps-2 pe-3 fs-5 text-body" data-bs-toggle="tooltip" data-bs-placement="top" title="Ver Repositorio GitHub" href="#" target="_blank"><i class="fa-brands fa-github"></i></a>
-                <div class="dropdown edit-proyectos">
-                  <button class="btn btn-outline-success btn-sm" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    <i class="fa-solid fa-ellipsis-vertical"></i> Acciones
-                  </button>
-                  <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-                    <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
       </div>
     </div>
+    <app-modal-proyects></app-modal-proyects>
   </section>

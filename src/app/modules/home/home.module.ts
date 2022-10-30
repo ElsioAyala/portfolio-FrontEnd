@@ -15,13 +15,19 @@ import { EducationItemsComponent } from './components/education-items/education-
 import { SkillsComponent } from './components/skills/skills.component';
 import { ProyectsComponent } from './components/proyects/proyects.component';
 import { NavColumnComponent } from './components/nav-column/nav-column.component';
-import { NewExperienceComponent } from './components/new-experience/new-experience.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { EditExperienceComponent } from './components/edit-experience/edit-experience.component';
 import { TokenSessionInterceptor } from '@core/interceptors/token-session.interceptor';
 import { EditEducationComponent } from './components/education/Modals/edit-education/edit-education.component';
 import { NewEducationComponent } from './components/education/Modals/new-education/new-education.component';
 import { AppRoutingModule } from 'src/app/app-routing.module';
+import { NewExperienceComponent } from './components/experience/modals/new-experience/new-experience.component';
+import { EditExperienceComponent } from './components/experience/modals/edit-experience/edit-experience.component';
+import { ModalComponent } from './components/skills/modal/modal.component';
+import { ModalProyectsComponent } from './components/proyects/modal-proyects/modal-proyects.component';
+import { ModalProfileComponent } from './components/profile/modal/modal-profile.component';
+import { ModalContactComponent } from './components/profile/modal/modal-contact.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 
 
@@ -43,6 +49,11 @@ import { AppRoutingModule } from 'src/app/app-routing.module';
     EditExperienceComponent,
     NewEducationComponent,
     EditEducationComponent,
+    ModalComponent,
+    ModalProyectsComponent,
+    ModalProfileComponent,
+    ModalContactComponent,
+    ContactComponent,
 
   ],
   imports: [

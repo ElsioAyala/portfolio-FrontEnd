@@ -4,3 +4,7 @@
 .active-dark .card-title {
     color: var(--title-color) !important; 
 }
+.card{
+    border: none !important;
+    box-shadow: 0 .125rem .25rem rgba(0,0,0,.075);
+}

@@ -1,0 +1,40 @@
+#inputTechnology{
+    margin-bottom: 20px;
+}
+
+.form-range{
+    background-color: transparent !important;
+    box-shadow: none;
+}
+
+.form-range:focus{
+    box-shadow: none !important;
+}
+
+.form-range::-webkit-slider-thumb{
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 20px;
+    height: 20px;
+    background-color: rgb(25, 135, 84);
+    border-radius: 50%;
+    border: solid 1px rgb(25, 135, 84);
+
+}
+
+.form-range::-moz-range-progress, .form-range::-moz-range-thumb{
+    background-color: rgb(25, 135, 84);
+    
+}
+.form-range::-moz-range-progress{
+    height: 10px;
+}
+
+.active-dark .form-range::-moz-range-track{
+    background-color: #273b49;
+    height: 10px !important;
+}
+
+.active-dark .form-range::-webkit-slider-runnable-track{
+    background-color: #273b49 !important;
+}

@@ -5,16 +5,10 @@
     border-color: #F0F2F5 !important;
 }
 
-.perfil-contacto{
-    cursor:pointer;
-}
-.perfil-contacto span:hover{
-    color: black;
-}
-
 .card{
     margin-top: -85px;
 }
+
 
 @media screen and (min-width: 768px){
     .card{

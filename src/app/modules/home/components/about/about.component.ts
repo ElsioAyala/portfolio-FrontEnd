@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ThemeService } from '@shared/services/theme.service';
 import { Observable } from 'rxjs';
 
@@ -8,6 +8,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./about.component.css']
 })
 export class AboutComponent implements OnInit {
+
+  @Input() about!: string;
 
   isDark:boolean = (localStorage.getItem("active-dark")) === "true";
   isDark$!: Observable<boolean>;

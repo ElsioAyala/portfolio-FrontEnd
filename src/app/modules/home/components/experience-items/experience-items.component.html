@@ -8,7 +8,7 @@
           <div class="col-10">
             <div class="card-body ps-4">
               <h5 class="card-title">{{data.position}}</h5>
-              <p class="card-text mb-0">{{data.company}} · {{data.workingDay}}.</p>
+              <p class="card-text mb-0">{{data.company}} · {{data.workday}}</p>
               <p class="card-text mb-0"><small class="text-muted">{{data.timeElapsed}}</small></p>
               <p class="card-text"><small class="text-muted">{{data.place}}</small></p>
             </div>
@@ -16,14 +16,14 @@
         </div>
       </div>
     </div>
-    <div class="col-1"> 
+    <div class="col-1" *ngIf="isLogged"> 
       <div class="dropdown pt-2 edit">
         <button class="btn float-end" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-ellipsis-vertical"></i>
         </button>
         <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
           <li><a class="dropdown-item" href="#" (click)="edit(data)" data-bs-toggle="modal" data-bs-target="#experienceEditModal"><i class="fa-solid fa-pen-to-square"></i> Editar</a></li>
-          <li><a class="dropdown-item" href="#"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
+          <li><a class="dropdown-item" href="#" (click)="delete(data.id_exp)"><i class="fa-solid fa-trash"></i> Eliminar</a></li>
         </ul>
       </div>
     

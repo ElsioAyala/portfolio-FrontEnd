@@ -1,0 +1,137 @@
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="profileModalLabel">Editar Perfil</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+
+        <form [formGroup]="profileModalForm" (ngSubmit)="saveProfile()" id="projectsFormModal">
+
+          <div class="container">
+            <div class="row">
+              <div class="col d-flex align-items-center">
+                <h6 class="mb-0">Foto del Perfil</h6>
+              </div>
+              <div class="col">
+                <div class="form-group d-flex justify-content-end">
+                  <div class="btnFile" > + Subir foto
+                    <input (change)="captureFile($event, 'photo')" formControlName="photo" type="file" class="form-file" id="inputPhoto">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <img [src]="photoUrl" alt="Foto del Perfil" height="140px" width="140px" class="rounded-circle mt-2 ml-0" style="object-fit: cover;">
+              </div>
+            </div>
+
+            <div class="row mt-5">
+              <div class="col d-flex align-items-center">
+                <h6 class="mb-0">Foto del Portada</h6>
+              </div>
+              <div class="col">
+                <div class="form-group d-flex justify-content-end">
+                  <div class="btnFile" > + Subir foto
+                    <input (change)="captureFile($event, 'cover')" formControlName="cover" type="file" class="form-file" id="inputPhoto">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col d-flex justify-content-center">
+                <img [src]="coverUrl" alt="Foto de Portada" height="140px" width="80%" class="rounded mt-3 ml-0" style="object-fit: cover;">
+              </div>
+            </div>
+
+
+          </div>
+
+          
+
+          <!--<div class="form-group">
+                <img [src]="photoUrl" alt="Foto del Perfil" height="80%" width="20%" style="object-fit: cover;">
+                <div class="btnFile">
+                  Añadir Imagen
+                <input (change)="captureFile($event, 'photo')" formControlName="photo" type="file" class="form-file" id="inputPhoto">      
+                </div>       
+              </div>-->
+
+          <!--<h6>Foto del Portada</h6>
+
+          <div class="form-group">
+
+            <img [src]="coverUrl" alt="Foto de Portada" height="80%" width="20%" style="object-fit: cover;">
+            <div class="btnFile">
+              Añadir Imagen
+              <input (change)="captureFile($event, 'cover')" formControlName="cover" type="file" class="form-file"
+                id="inputCover">
+            </div>
+          </div>-->
+
+          <h6 class="mt-5">Datos Personales</h6>
+
+          <div class="form-group mt-3">
+            <label for="inputName" class="form-label">Nombre</label>
+            <input formControlName="name" type="text" class="form-control" id="inputName" placeholder="">
+          </div>
+          <div class="form-group mt-3">
+            <label for="inputApellido" class="form-label">Apellido</label>
+            <input formControlName="apellido" type="text" class="form-control" id="inputApellido" placeholder="">
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="inputStack" class="form-label">Stack</label>
+            <input formControlName="stack" type="text" class="form-control" id="inputStack" placeholder="">
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="inputAbout" class="form-label">Acerca de</label>
+            <textarea formControlName="about" class="form-control" rows="3" id="inputAbout" placeholder=""></textarea>
+          </div>
+
+          <div class="container">
+            <div class="row mt-5">
+              <div class="col">
+                <h6>Contactos | Redes Sociales </h6>
+              </div>
+              <div class="col d-flex justify-content-end">
+                <button type="button" class="btn btnFile btn-sm ms-3 edit" data-bs-toggle="modal"
+                data-bs-target="#contactModal"><i class="fa-solid fa-pen"></i> Editar</button>
+              </div>
+              
+            </div>
+            <div class="row mt-4">
+              <div class="col d-flex justify-content-center h4">
+
+              <div *ngFor="let contact of contacts" class="contacts">
+                  <div *ngIf="contact.link"><span><i class="{{contact.icon}} pe-2"></i></span></div>
+              </div>
+
+                <!--<div *ngIf="data.link"><span><i class="{{data.icon}} pe-2"></i></span></div>-->
+              </div>
+            </div>
+            
+          </div>
+    
+
+          <!--<button type="button" class="btn btn-outline-success btn-sm ms-3 edit" data-bs-toggle="modal"
+            data-bs-target="#contactModal">Editar</button>-->
+
+
+          <div class="modal-footer mt-5">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+            <button [disabled]="profileModalForm.invalid" type="submit" class="btn btn-success">Guardar Cambios</button>
+
+          </div>
+
+        </form>
+
+
+      </div>
+    </div>
+  </div>
+</div>
+<app-modal-contact></app-modal-contact>

@@ -1,0 +1,8 @@
+a{
+    color: rgb(33, 37, 41) !important;
+    cursor:pointer;
+}
+a:hover{
+    color: black !important;
+}
+
