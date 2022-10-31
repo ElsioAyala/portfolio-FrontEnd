@@ -8,20 +8,31 @@
       <div class="modal-body">
         <form [formGroup]="editEducation" (ngSubmit)="saveEditEducation()">
 
-          <ng-container formArrayName="item" *ngFor="let field of this.formItemsGroup$ | async; let i = index">
-            <div class="form-input mt-3" [formGroupName]="i">
-              <label>{{field.value.key}}</label>
-              <input *ngIf="field.value.key !== 'Imagen'; else inputFile" class="form-control m-2"
-                formControlName="value" type="text">
-              <ng-template #inputFile>
-                <img [src]="imageUrl" alt="Image Review" height="80%" width="20%" style="object-fit: cover;">
-                <div class="btnFile">
-                  Añadir Imagen
-                  <input (change)="captureFile($event)" class="form-file" formControlName="value" type="file">
-              </div>
-              </ng-template>
+          <div class="form-group mt-3">
+            <label for="inputSchool" class="form-label">Escuela/Instituto</label>
+            <input formControlName="school" type="text" class="form-control" id="inputSchool" placeholder="">
+          </div>
+          
+          <div class="form-group mt-3">
+            <label for="inputTitle" class="form-label">Titulo/Certificado</label>
+            <input formControlName="title" type="text" class="form-control" id="inputTitle">
+          </div>
+
+          <div class="form-group mt-3">
+            <label for="inputPeriod" class="form-label">Periodo Cursado</label>
+            <input formControlName="period" type="text" class="form-control" id="inputPeriod">
+          </div>
+
+
+          <div class="form-group mt-4">
+            <label for="inputImage" class="form-label">Imagen</label>
+            <img *ngIf="imageUrl === ''; else image" class="imgNotFount" src="./assets/faltaImagen.jpg" alt="Image Review" height="80%" width="20%" style="object-fit: cover;">
+            <ng-template #image><img  [src]="imageUrl" alt="Image Review" height="80%" width="20%" style="object-fit: cover;"></ng-template>
+            <div class="btnFile">
+              Añadir Imagen
+            <input (change)="captureFile($event)" formControlName="image" type="file" class="form-file" id="inputImage">
             </div>
-          </ng-container>
+          </div>
 
           <div class="modal-footer mt-5">
             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>

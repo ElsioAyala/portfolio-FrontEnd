@@ -37,16 +37,21 @@ export class ExperienceService {
       .subscribe((response) => this._reloadExperience$.next(response));
   }
 
-  /********* Edit *********** */
-  private _itemData$ = new BehaviorSubject(null);
-  itemData$ = this._itemData$.asObservable();
-
-  setdataItem(data: any) {
-    this._itemData$.next(data);
-  }
-
   /******** update ******* */
   updateExperience(data: any): Observable<any> {
     return this.httpClient.put(`${this.URL}/experience/`, data);
   }
+
+  /********* Edit *********** */
+  private _idData$ = new BehaviorSubject(0);
+  idData$ = this._idData$.asObservable();
+
+  setdataId(id: number) {
+    this._idData$.next(id);
+  }
+
+    /******** Get Experience ******* */
+    getExperience(id: number): Observable<any> {
+      return this.httpClient.get(`${this.URL}/experience/` + id);
+    }
 }

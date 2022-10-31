@@ -34,8 +34,9 @@ export class EducationItemsComponent implements OnInit {
   }
 
   //  se envia los datos del item donde se llamo al metodo edit.
-  edit(data: any) {
-    this.educationService.setdataItem(data);
+  edit(id: number) {
+    /*this.educationService.setdataItem(data);*/
+    this.educationService.setdataId(id);
   }
 
   delete(id: number) {

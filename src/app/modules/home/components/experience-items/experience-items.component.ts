@@ -32,8 +32,8 @@ export class ExperienceItemsComponent implements OnInit {
     this.toast.success({ detail: 'SUCCESS', summary: message, duration: 5000 });
   }
 
-  edit(data: any) {
-    this.experienceService.setdataItem(data);
+  edit(id: number) {
+    this.experienceService.setdataId(id);
   }
 
   delete(id: number) {

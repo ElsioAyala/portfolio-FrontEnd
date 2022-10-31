@@ -50,4 +50,17 @@ export class EducationService {
       .get(`${this.URL}/education/`)
       .subscribe((response) => this._reloadEducation$.next(response));
   }
+
+  /********* Edit *********** */
+  private _idData$ = new BehaviorSubject(0);
+  idData$ = this._idData$.asObservable();
+
+  setdataId(id: number) {
+    this._idData$.next(id);
+  }
+
+    /******** Get Education ******* */
+    getEducation(id: number): Observable<any> {
+      return this.httpClient.get(`${this.URL}/education/` + id);
+    }
 }

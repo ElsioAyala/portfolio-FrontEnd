@@ -11,9 +11,6 @@ import { NgToastService } from 'ng-angular-popup';
 })
 export class EditExperienceComponent implements OnInit {
   editExperience: FormGroup = new FormGroup({});
-  formItemsGroup$ = this.experienceService.itemsFormGroup$;
-
-  id_exp: any = '';
   imageUrl: string = '';
   fileSelected!: Blob;
   base64!: string;
@@ -25,51 +22,32 @@ export class EditExperienceComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.experienceService.itemData$.subscribe((itemData) => {
-      this.editExperience = new FormGroup({
-        item: new FormArray(this.initItemsGroup(itemData)),
-      });
+    this.editExperience = new FormGroup({
+      id_exp: new FormControl(''),
+      position: new FormControl('', Validators.required),
+      company: new FormControl('', Validators.required),
+      workday: new FormControl('', Validators.required),
+      timeElapsed: new FormControl('', Validators.required),
+      place: new FormControl('', Validators.required),
+      image: new FormControl(),
+      profile: new FormControl({ id_pro: 1 }),
     });
-  }
 
-  initItemsGroup(dataItem: any): any {
-    const items = [
-      new FormGroup({
-        key: new FormControl('Puesto'),
-        value: new FormControl(`${dataItem !== null ? dataItem.position : ''}`, [Validators.required]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Empresa/Institución'),
-        value: new FormControl(`${dataItem !== null ? dataItem.company : ''}`, [Validators.required]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Jornada Laboral'),
-        value: new FormControl(`${dataItem !== null ? dataItem.workday : ''}`, [Validators.required]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Período (Años)'),
-        value: new FormControl(`${dataItem !== null ? dataItem.timeElapsed : ''}`, [Validators.required]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Lugar/Ciudad/Provincia'),
-        value: new FormControl(`${dataItem !== null ? dataItem.place : ''}`, [Validators.required]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Imagen'),
-        value: new FormControl(),
-        type: new FormControl('file'),
-      }),
-    ];
-    if (dataItem !== null) this.imageUrl = dataItem.image;
-    if (dataItem !== null) this.base64 = dataItem.image;
-    if (dataItem !== null) this.id_exp = dataItem.id_exp;
-    this.experienceService.setFormGroup(items);
-    return items;
+    this.experienceService.idData$.subscribe((idData) => {
+      
+      if (idData !== 0) {
+        this.experienceService.getExperience(idData).subscribe((res) => {
+          this.editExperience.controls['id_exp'].setValue(res.id_exp);
+          this.editExperience.controls['position'].setValue(res.position);
+          this.editExperience.controls['company'].setValue(res.company);
+          this.editExperience.controls['workday'].setValue(res.workday);
+          this.editExperience.controls['timeElapsed'].setValue(res.timeElapsed);
+          this.editExperience.controls['place'].setValue(res.place);
+          this.imageUrl = res.image;
+          this.base64 = res.image;
+        });
+      }
+    });
   }
 
   showInfo(message: string) {
@@ -97,31 +75,10 @@ export class EditExperienceComponent implements OnInit {
   }
 
   saveEditExperience() {
-    const experience: any = {
-      id_exp: this.id_exp,
-      position: '',
-      company: '',
-      workday: '',
-      timeElapsed: '',
-      place: '',
-      image: '',
-      profile: { id_pro: 1 },
-    };
-
     const body = this.editExperience.value;
-    if (body.item[5].value !== '') {
-      body.item[5].value = this.base64;
-    } else {
-      body.item[5].value = this.imageUrl;
-    }
+    body.image = this.base64;
 
-    let claves = Object.keys(experience);
-    for (let i = 1; i < claves.length - 1; i++) {
-      let clave = claves[i];
-      experience[clave] = body.item[i - 1].value;
-    }
-
-    this.experienceService.updateExperience(experience).subscribe(
+    this.experienceService.updateExperience(body).subscribe(
       (response) => {
         ($('#experienceEditModal') as any).modal('hide');
         this.showSuccess(response.message);

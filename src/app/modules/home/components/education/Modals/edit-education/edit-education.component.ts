@@ -14,7 +14,7 @@ export class EditEducationComponent implements OnInit {
   editEducation: FormGroup = new FormGroup({});
   formItemsGroup$ = this.educationService.itemsFormGroup$;
 
-  id_edu: any = '';
+  idEdit: number = 0;
   imageUrl: string = '';
   fileSelected!: Blob;
   base64!: string;
@@ -26,47 +26,27 @@ export class EditEducationComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    let dataItem = this.educationService.itemData$.subscribe();
-    this.educationService.itemData$.subscribe((itemData) => {
-      this.editEducation = new FormGroup({
-        item: new FormArray(this.initItemsGroup(itemData)),
-      });
+    this.editEducation = new FormGroup({
+      id_edu: new FormControl(''),
+      school: new FormControl('', Validators.required),
+      title: new FormControl('', Validators.required),
+      period: new FormControl('', Validators.required),
+      image: new FormControl(),
+      profile: new FormControl({ id_pro: 1 }),
     });
-  }
 
-  initItemsGroup(dataItem: any): any {
-    const items = [
-      new FormGroup({
-        key: new FormControl('Escuela/Instituto'),
-        value: new FormControl(`${dataItem !== null ? dataItem.school : ''}`, [
-          Validators.required,
-        ]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Titulo/Certificado'),
-        value: new FormControl(`${dataItem !== null ? dataItem.title : ''}`, [
-          Validators.required,
-        ]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Periodo Cursado'),
-        value: new FormControl(`${dataItem !== null ? dataItem.period : ''}`, [
-          Validators.required,
-        ]),
-        type: new FormControl('text'),
-      }),
-      new FormGroup({
-        key: new FormControl('Imagen'),
-        value: new FormControl(),
-        type: new FormControl('file'),
-      }),
-    ];
-    if (dataItem !== null) this.imageUrl = dataItem.image;
-    if (dataItem !== null) this.id_edu = dataItem.id_edu;
-    this.educationService.setFormGroup(items);
-    return items;
+    this.educationService.idData$.subscribe((idData) => {
+      if (idData !== 0) {
+        this.educationService.getEducation(idData).subscribe((res) => {
+          this.editEducation.controls['id_edu'].setValue(res.id_edu);
+          this.editEducation.controls['school'].setValue(res.school);
+          this.editEducation.controls['title'].setValue(res.title);
+          this.editEducation.controls['period'].setValue(res.period);
+          this.imageUrl = res.image;
+          this.base64 = res.image;
+        });
+      }
+    });
   }
 
   showInfo(message: string) {
@@ -94,29 +74,10 @@ export class EditEducationComponent implements OnInit {
   }
 
   saveEditEducation() {
-    const education: any = {
-      id_edu: this.id_edu,
-      school: '',
-      title: '',
-      period: '',
-      image: '',
-      profile: { id_pro: 1 },
-    };
     const body = this.editEducation.value;
+    body.image = this.base64;
 
-    if (body.item[3].value !== '') {
-      body.item[3].value = this.base64;
-    } else {
-      body.item[3].value = this.imageUrl;
-    }
-
-    let claves = Object.keys(education);
-    for (let i = 1; i < claves.length - 1; i++) {
-      let clave = claves[i];
-      education[clave] = body.item[i - 1].value;
-    }
-
-    this.educationService.updateEducation(education).subscribe(
+    this.educationService.updateEducation(body).subscribe(
       (response) => {
         ($('#educationEditModal') as any).modal('hide');
         this.showSuccess(response.message);
