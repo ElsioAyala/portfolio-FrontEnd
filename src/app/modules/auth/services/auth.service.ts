@@ -26,12 +26,10 @@ export class AuthService {
     return this.http.post<UserResponse>(`${this.URL}/auth/login`, credentials)
     .pipe(
       map((response: UserResponse) => {
-        console.log("Respuesta -------> ", response.token);
         this.saveToken(response.token);
         this.loggedIn.next(true);
         return response;
       }),
-      /*catchError(err => this.handleError(err))*/
     )
   }
 
@@ -59,18 +57,4 @@ export class AuthService {
   private saveToken(token: string) {
     localStorage.setItem('token', JSON.stringify(token));
   }
-
-
-  /*private handleError(err: any):Observable<never>{
-    let errorMessage = 'An error ocurred retrienving data';
-    if (err) {
-      errorMessage = `Error: 
-      code -----> ${err.code} 
-      status -----> ${err.status}
-      message -----> ${err.message}`;
-    }
-    window.alert(errorMessage); 
-    return throwError(errorMessage);
-    
-  }*/
 }

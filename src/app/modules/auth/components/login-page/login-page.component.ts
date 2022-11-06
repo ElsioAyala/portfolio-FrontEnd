@@ -52,7 +52,6 @@ export class LoginPageComponent implements OnInit, AfterViewInit {
     const credentials = this.loginForm.value;
     this.authService.login(credentials).subscribe( res => {
       if(res){
-        console.log("token viene?: ",res);
         this.router.navigate(['/'])
         this.showSuccess("Bienvenido: " + res.userName);
       }

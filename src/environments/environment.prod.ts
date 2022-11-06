@@ -1,4 +1,4 @@
 export const environment = {
   production: true,
-  api:'https://portfolioelsio.herokuapp.com/'
+  api:'https://portfolioelsio.herokuapp.com'
 };
