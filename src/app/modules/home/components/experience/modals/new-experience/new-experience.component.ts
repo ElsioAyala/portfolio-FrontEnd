@@ -99,12 +99,12 @@ export class NewExperienceComponent implements OnInit {
 
   saveExperience() {
     const experience: any = {
-      position: 'FrontEnd',
-      company: 'PinoTech',
-      workday: 'jr',
-      timeElapsed: 'Jornada completa',
-      place: 'Sauce Corrientes',
-      image: 'hola.png',
+      position: '',
+      company: '',
+      workday: '',
+      timeElapsed: '',
+      place: '',
+      image: '',
       profile: { id_pro: 1 },
     };
 
@@ -121,7 +121,6 @@ export class NewExperienceComponent implements OnInit {
       (response) => {
         ($('#newExperienceModal') as any).modal('hide');
         this.showSuccess(response.message);
-
         this.experienceService.reloadExperience();
       },
       (err) => {
