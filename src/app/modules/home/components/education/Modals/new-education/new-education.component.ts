@@ -112,5 +112,11 @@ export class NewEducationComponent implements OnInit {
         this.showInfo(err.message);
       }
     );
+
+    /** clean inputs */
+    this.newEducation = new FormGroup({
+      item: new FormArray(this.initItemsGroup()),
+    });
+    this.imageUrl = '';
   }
 }

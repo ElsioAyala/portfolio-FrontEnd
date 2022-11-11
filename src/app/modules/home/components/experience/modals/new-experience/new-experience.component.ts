@@ -17,8 +17,9 @@ export class NewExperienceComponent implements OnInit {
   newExperience: FormGroup = new FormGroup({});
   formItemsGroup$ = this.experienceService.itemsFormGroup$;
   imageUrl: string = '';
-  fileSelected!: Blob;
   base64!: string;
+  fileSelected!: Blob;
+  
 
   constructor(
     private experienceService: ExperienceService,
@@ -109,6 +110,7 @@ export class NewExperienceComponent implements OnInit {
     };
 
     const body = this.newExperience.value;
+    console.log(body);
     body.item[5].value = this.base64;
 
     let claves = Object.keys(experience);
@@ -127,5 +129,11 @@ export class NewExperienceComponent implements OnInit {
         this.showInfo(err.message);
       }
     );
+
+    /** clean inputs */
+    this.newExperience = new FormGroup({
+      item: new FormArray(this.initItemsGroup()),
+    });
+    this.imageUrl = '';
   }
 }
